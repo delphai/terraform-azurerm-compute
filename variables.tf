@@ -77,6 +77,12 @@ variable "data_sa_type" {
   default     = "Standard_LRS"
 }
 
+variable "data_create_option" {
+  description = "(Optional) Specifies how the data disk should be created. Possible values are Attach, FromImage and Empty."
+  type        = string
+  default     = "Empty"
+}
+
 variable "delete_data_disks_on_termination" {
   type        = bool
   description = "Delete data disks when machine is terminated."

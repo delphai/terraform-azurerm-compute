@@ -138,7 +138,7 @@ resource "azurerm_virtual_machine" "vm_linux" {
     for_each = local.nested_data_disk_list
 
     content {
-      create_option     = "Empty"
+      create_option     = var.data_create_option
       lun               = storage_data_disk.value
       name              = replace(replace(replace(var.name_template_data_disk, "$${vm_hostname}", var.vm_hostname), "$${host_number}", count.index), "$${data_disk_number}", storage_data_disk.value)
       disk_size_gb      = var.data_disk_size_gb
@@ -254,7 +254,7 @@ resource "azurerm_virtual_machine" "vm_windows" {
     for_each = local.nested_data_disk_list
 
     content {
-      create_option     = "Empty"
+      create_option     = var.data_create_option
       lun               = storage_data_disk.value
       name              = replace(replace(replace(var.name_template_data_disk, "$${vm_hostname}", var.vm_hostname), "$${host_number}", count.index), "$${data_disk_number}", storage_data_disk.value)
       disk_size_gb      = var.data_disk_size_gb
