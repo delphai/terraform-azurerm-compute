@@ -1,8 +1,6 @@
 name: Weekly E2E Test Check
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * 0'
 
 jobs:
   full-e2e-check:
