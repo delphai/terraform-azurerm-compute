@@ -83,6 +83,12 @@ variable "data_create_option" {
   default     = "Empty"
 }
 
+variable "managed_data_disk_ids" {
+  description = "(Optional) Specifies existing data disks to attach when `data_create_option = Attach`."
+  type        = list(list(string))
+  default     = []
+}
+
 variable "delete_data_disks_on_termination" {
   type        = bool
   description = "Delete data disks when machine is terminated."

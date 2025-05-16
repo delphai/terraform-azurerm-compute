@@ -143,6 +143,7 @@ resource "azurerm_virtual_machine" "vm_linux" {
       name              = replace(replace(replace(var.name_template_data_disk, "$${vm_hostname}", var.vm_hostname), "$${host_number}", count.index), "$${data_disk_number}", storage_data_disk.value)
       disk_size_gb      = var.data_disk_size_gb
       managed_disk_type = var.data_sa_type
+      managed_disk_id   = var.data_create_option == "Attach" ? var.managed_data_disk_ids[count.index][storage_data_disk.value] : null
     }
   }
   dynamic "storage_data_disk" {
