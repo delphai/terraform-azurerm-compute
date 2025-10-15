@@ -66,3 +66,6 @@ test/go.sum
 
 /TestRecord
 **/TestRecord.md.tmp
+.idea/
+
+.vscode/
